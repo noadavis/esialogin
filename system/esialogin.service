@@ -1,0 +1,17 @@
+[Unit]
+Description=Control Permit Web App
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/home/dev/qr_permission/pid/project.pid
+
+User=dev
+Group=dev
+
+ExecStart=/home/dev/qr_permission/systemd/run_qrsyst.sh
+KillSignal=SIGQUIT
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

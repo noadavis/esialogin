@@ -1,0 +1,19 @@
+{
+    "DEBUG": true,
+
+    "USE_POSTGRESQL": false,
+
+    "DB_NAME": "db_name",
+    "DB_USER": "db_user",
+    "DB_PASSWORD": "db_user_password",
+    "DB_HOST": "db_ip",
+    "DB_PORT": 5432,
+
+    "SIGN_PASSWORD": "SIGN_PASSWORD",
+    "SHA1_PUBLIC_KEY": "SHA1_PUBLIC_KEY",
+
+    "SYSTEM_URL": "http://127.0.0.1:9999",
+    "ESIA_SCOPE": "fullname snils",
+    "ESIA_CLIENT_ID": "ESIA_CLIENT_ID",
+    "ESIA_TEST": true
+}

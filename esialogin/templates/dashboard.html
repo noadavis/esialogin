@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="tile">
+                <div class="tile-body">
+                    
+                    {% if data.description %}
+                        <p><span style="font-size: 110%; font-weight: bold">{{data.description.additional}}</span></p>
+                        <div>{{data.description.text | safe}}</div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="tile">
+                <div class="tile-body">
+                    <p><span style="font-size: 110%; font-weight: bold"><i class="fa fa-newspaper-o"></i> Новости и объявления</span></p>
+                    
+                    {% if data.news %}
+                        {% for news in data.news %}
+                            
+                            <div class="card" style="margin-bottom: 25px;">
+                                <div class="card-body border-primary">
+                                    <p><span style="font-size: 110%; font-weight: bold">{{news.title}}</span><br><span style="font-size: 80%;">{{news.pub_date | date:'Y-m-d G-i'}}</span></p>
+                                    <p>{{news.text}}</p>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                    {% else %}
+                        <div class="card" style="margin-bottom: 25px;">
+                            <div class="card-body border-primary">
+                                <p><span style="font-size: 110%; font-weight: bold">Новостей не найдено.</span></p>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

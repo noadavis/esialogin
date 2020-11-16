@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="description" content="{{sysname}}">
+        <title>{{sysname}}</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+    </head>
+<body>
+
+
+
+    <section class="material-half-bg">
+        <div class="cover"></div>
+    </section>
+    
+    
+    
+    <section class="login-content">
+        <div class="logo">
+            <h1>{{sysname}}</h1>
+        </div>
+        <div class="login-box">
+            <form class="login-form" method="POST" action="{% url 'login:index' %}">
+                {% csrf_token %}
+                <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>ВХОД</h3>
+                <div class="form-group">
+                    <label class="control-label">ЛОГИН</label>
+					<input class="form-control" type="text" placeholder="Логин" name="username" autofocus>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">ПАРОЛЬ</label>
+                    <input class="form-control" type="password" placeholder="Пароль" name="password">
+                </div>
+                <div class="form-group btn-container">
+                    <button class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>ВОЙТИ</button>
+                </div>
+                <div class="form-group btn-container" style="margin-top: 15px;">
+                    <a class="btn btn-primary btn-block" href="{% url 'esia:index' %}"><i class="fa fa-sign-in fa-lg fa-fw"></i>ВОЙТИ ЧЕРЕЗ ГОСУСЛУГИ</a>
+                </div>
+                {% ifnotequal error '' %}
+                <div class="form-group btn-container">
+                    <p style="text-align: center; padding-top: 3px;">{{error}}</p>
+                </div>
+                {% endifnotequal %}
+            </form>
+            
+        </div>
+    </section>
+
+
+
+    <!-- Essential javascripts for application to work-->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
