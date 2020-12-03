@@ -30,7 +30,7 @@ class Crypto(object):
         THREAD_ID = uuid4().hex
         prepareSets = {
             'thread_id': THREAD_ID,
-            'sign_cmd': '/opt/cprocsp/bin/amd64/cryptcp -signf -dir "%(dir)s" -strict -cert -detached -thumbprint %(sha1)s -pin %(password)s "%(msg_file)s"',
+            'sign_cmd': '/opt/cprocsp/bin/amd64/cryptcp -signf -dir "%(dir)s" -nochain -strict -cert -detached -thumbprint %(sha1)s -pin %(password)s "%(msg_file)s"',
             'msg_file': '%s%s/msg' % (SIGN_TMP_PATH, THREAD_ID),
             'sign_path': '%s%s' % (SIGN_TMP_PATH, THREAD_ID)
         }
