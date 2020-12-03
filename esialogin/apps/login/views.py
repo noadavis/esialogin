@@ -72,8 +72,16 @@ def esia(request):
         oauth_token = request.session['oauth_token']
         oauth_sbj_id = request.session['oauth_sbj_id']
         
-        #Отправляем запрос на получение данных из есиа
+        #Отправляем запрос на получение данных из есиа: Базовые данные scope: fullname, snils
         userInfo = getPostAnswer(url = oauth_sbj_id, data = oauth_token, headerType = 'authorization')
+
+        #Отправляем запрос на получение данных из есиа: Контакты scope: email, mobile
+        #userContacts = getPostAnswer(url = '%s/ctts?embed=(elements)' % oauth_sbj_id, data = oauth_token, headerType = 'authorization')
+        #log.info(userContacts)
+
+        #Отправляем запрос на получение данных из есиа: Адрес scope: contacts
+        #userAddress = getPostAnswer(url = '%s/addrs?embed=(elements)' % oauth_sbj_id, data = oauth_token, headerType = 'authorization')
+        #log.info(userAddress)
 
     else:
         log.error('oauth_token or oauth_sbj_id not found')
